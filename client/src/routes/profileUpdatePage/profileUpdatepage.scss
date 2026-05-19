@@ -1,0 +1,79 @@
+
+.profileUpdatePage {
+  display: flex;
+  height: calc(100vh - 80px);
+
+  .formContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 400px;
+
+      h1 {
+        font-weight: 300;
+        color: #333;
+      }
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        label {
+          font-size: 14px;
+          font-weight: 500;
+          color: #555;
+        }
+
+        input {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+      }
+
+      .error {
+        color: red;
+        font-size: 13px;
+      }
+
+      button {
+        padding: 12px;
+        background-color: #fece51;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .sideContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fcf5f3;
+
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fece51;
+    }
+  }
+}

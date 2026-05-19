@@ -1,0 +1,213 @@
+@import "../../responsive.scss";
+
+nav {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .left {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    .logo {
+      font-weight: bold;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      img {
+        width: 36px;
+      }
+
+      span {
+          @include md {
+              display: none;
+          }
+      }
+    }
+
+    a {
+      font-weight: 500;
+      transition: all 0.4s ease;
+      color: var(--text-color);
+
+      &:hover {
+        color: var(--primary-color);
+        transform: scale(1.05);
+      }
+
+      @include md {
+        display: none;
+      }
+    }
+  }
+
+  .right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: transparent;
+    gap: 20px;
+
+    @include md {
+      background-color: transparent;
+    }
+
+    .themeToggle {
+        cursor: pointer;
+        font-size: 20px;
+        background: var(--soft-bg);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+
+        &:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      gap: 15px;
+
+      @include md {
+        display: none;
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--primary-color);
+      }
+
+      .profile {
+        padding: 12px 24px;
+        background-color: var(--primary-color);
+        cursor: pointer;
+        border: none;
+        position: relative;
+        border-radius: 12px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #111;
+            color: #fff;
+        }
+
+        .notification {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          background-color: #ff4d4d;
+          color: white;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          border: 2px solid #fff;
+        }
+      }
+    }
+
+    .register {
+      padding: 12px 24px;
+      background-color: var(--primary-color);
+      border-radius: 12px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #111;
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      @include md {
+        display: none;
+      }
+    }
+
+    .menuIcon {
+      display: none;
+      z-index: 999;
+      cursor: pointer;
+
+      @include md {
+        display: block;
+      }
+
+      img {
+        width: 36px;
+        height: 36px;
+        filter: invert(var(--theme-invert, 0));
+      }
+    }
+
+    .menuOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 997;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      width: 50%;
+      height: 100vh;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      font-size: 24px;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+      z-index: 998;
+
+      &.active {
+        right: 0;
+      }
+
+      a {
+          color: var(--text-color);
+      }
+
+      @include md {
+        width: 70%;
+        right: -100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+@import "../../responsive.scss";
+
+.homePage{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    .heroSection {
+        display: flex;
+        height: calc(100vh - 100px);
+
+        .textContainer{
+            flex:3;
+    
+            .wrapper{
+                padding-right: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+                gap: 30px;
+    
+                @include md{
+                    padding: 0;
+                }
+                @include sm{
+                    justify-content: flex-start;
+                }
+    
+                .title{
+                    font-size: 60px;
+                    font-weight: 800;
+    
+                    @include lg{
+                        font-size: 40px;
+                    }
+    
+                    @include md{
+                        font-size: 35px;
+                    }
+    
+                    @include sm{
+                        font-size: 28px;
+                    }
+                }
+    
+                p {
+                    color: var(--secondary-text);
+                }
+
+                .boxes{
+                    display: flex;
+                    justify-content: space-between;
+    
+                    @include sm{
+                        display: none;
+                    }
+    
+                    h1{
+                        font-size: 36px;
+    
+                        @include lg{
+                            font-size: 32px;
+                        }
+                    }
+    
+                    h2{
+                        font-size: 20px;
+                        font-weight: 300;
+                        color: var(--secondary-text);
+                    }
+                }
+            }
+        }
+    
+        .imgContainer{
+            flex:2;
+            background-color: var(--soft-bg);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+    
+            @include md{
+                display: none;
+            }
+    
+            img{
+                width: 120%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                right: -10%;
+                transition: transform 0.8s ease;
+    
+                &:hover {
+                    transform: scale(1.05);
+                }
+    
+                @include lg{
+                    width: 110%;
+                }
+            }
+        }
+    }
+
+    .featuredSection {
+        padding: 80px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .sectionTitle {
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .sectionSubtitle {
+            font-size: 18px;
+            color: var(--secondary-text);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .featuredGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+
+            @include sm {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

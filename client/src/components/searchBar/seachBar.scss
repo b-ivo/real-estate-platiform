@@ -1,0 +1,103 @@
+@import "../../responsive.scss";
+
+.searchBar {
+  .type {
+    display: flex;
+    gap: 2px;
+    
+    button {
+      padding: 14px 28px;
+      border: none;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+      color: #333;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+      transition: all 0.3s ease;
+
+      &.active {
+        background-color: #111;
+        color: #fff;
+      }
+
+      &:first-child {
+        border-top-left-radius: 12px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 12px;
+      }
+      
+      &:hover:not(.active) {
+          background-color: #eee;
+      }
+    }
+  }
+
+  form {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    border-radius: 0 12px 12px 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    @include sm {
+      flex-direction: column;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    input {
+      border: none;
+      padding: 0 25px;
+      flex: 1;
+      font-size: 15px;
+      outline: none;
+      color: #333;
+      border-right: 1px solid #f0f0f0;
+
+      &::placeholder {
+          color: #aaa;
+      }
+
+      @include lg {
+        padding: 0 15px;
+      }
+
+      @include sm {
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+      }
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      background-color: #fece51;
+      padding: 0 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+          background-color: #e6b847;
+      }
+      
+      @include sm {
+        padding: 20px;
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
